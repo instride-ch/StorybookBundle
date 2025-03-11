@@ -24,7 +24,7 @@ final class StoryRenderer
         $loader = new ChainLoader([
             new ArrayLoader([
                 $story->getTemplateName() => $story->getTemplate(),
-                $storyTemplateName => \sprintf("{%% sandbox %%} {%%- include '%s' -%%} {%% endsandbox %%}", $story->getTemplateName()),
+                $storyTemplateName => \sprintf("{%%- include '%s' -%%}", $story->getTemplateName()),
             ]),
             $originalLoader = $this->twig->getLoader(),
         ]);
